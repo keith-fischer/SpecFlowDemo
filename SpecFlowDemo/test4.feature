@@ -1,9 +1,9 @@
-﻿Feature: PARKING_CALCULATOR_Test1
+﻿Feature: PARKING_CALCULATOR_Test4
 
 
 @mytag
 
-Scenario: PARKING_CALCULATOR_Test1
+Scenario: PARKING_CALCULATOR_Test4
 Given that I navigate with browser to "http://adam.goucher.ca/parkcalc/index.php"
    And I select the "Short-Term Parking" option in the "Choose a Lot" dropdown
    And I enter time of "10:00" and date of "01/01/2014" in the "Choose Entry Date and Time" section

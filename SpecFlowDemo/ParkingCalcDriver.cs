@@ -22,14 +22,14 @@ using OpenQA.Selenium.Support.UI;
 
 namespace SpecFlowDemo
 {
-    class ParkingCalcDriver
+    internal class ParkingCalcDriver
     {
-        static private IWebDriver Browser;
-        private static string currenthwnd;
-        private static string mainhwnd;
+        public static IWebDriver Browser;
+        public static string currenthwnd;
+        public static string mainhwnd;
 
-        static string path = @"C:\Users\kf\Documents\Visual Studio 2015\Projects\SpecFlowDemo\SpecFlowDemo\";
-        static int readyCondition;
+        public static string path = @"C:\Users\kf\Documents\Visual Studio 2015\Projects\SpecFlowDemo\SpecFlowDemo\";
+        public static int readyCondition=-1;
         //private static System.Collections.ObjectModel<IWebElement> Elementlist;
         public static void testClass()
         {
@@ -61,8 +61,9 @@ namespace SpecFlowDemo
             Browser.Quit();
         }
 
-        public static void InitBrowser()
+        public static bool InitBrowser()
         {
+            bool rc = false;
             ParkingCalcDriver.Browser =
                 new ChromeDriver(
                     path); //"C:\\Users\\kf\\Documents\\Visual Studio 2015\\Projects\\testSeleniumClass\\testSeleniumClass\\chromedriver.exe");
@@ -71,8 +72,13 @@ namespace SpecFlowDemo
 
             //SpecFlowDemo.SeleniumFW se = new SeleniumFW("chrome", "http://adam.goucher.ca/parkcalc/index.php", true);
             Browser.Navigate().GoToUrl("http://adam.goucher.ca/parkcalc/index.php");
-            WaitForPageLoad(Browser);
-            Console.WriteLine(Browser.Title);
+            rc=WaitForPageLoad(Browser);
+            if (rc)
+            {
+                Console.WriteLine(Browser.Title);
+                readyCondition = 1;
+            }
+            return rc;
         }
 
         public static bool DoCalcTest(

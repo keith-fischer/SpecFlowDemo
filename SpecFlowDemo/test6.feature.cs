@@ -18,20 +18,20 @@ namespace SpecFlowDemo
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.2.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("PARKING_CALCULATOR_Test1")]
-    public partial class PARKING_CALCULATOR_Test1Feature
+    [NUnit.Framework.DescriptionAttribute("PARKING_CALCULATOR_Test6")]
+    public partial class PARKING_CALCULATOR_Test6Feature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "test1.feature"
+#line 1 "test6.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "PARKING_CALCULATOR_Test1", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "PARKING_CALCULATOR_Test6", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -64,11 +64,11 @@ namespace SpecFlowDemo
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("PARKING_CALCULATOR_Test1")]
+        [NUnit.Framework.DescriptionAttribute("PARKING_CALCULATOR_Test6")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void PARKING_CALCULATOR_Test1()
+        public virtual void PARKING_CALCULATOR_Test6()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("PARKING_CALCULATOR_Test1", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("PARKING_CALCULATOR_Test6", new string[] {
                         "mytag"});
 #line 6
 this.ScenarioSetup(scenarioInfo);

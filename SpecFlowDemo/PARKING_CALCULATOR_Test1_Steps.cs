@@ -6,6 +6,7 @@ namespace SpecFlowDemo
     [Binding]
     public class PARKING_CALCULATOR_Test1_Steps
     {
+        private static string _cost = "";
         private string[] results = null;
         [Given(@"that I navigate with browser to ""(.*)""")]
         public void GivenThatINavigateWithBrowserTo(string p0)
@@ -40,21 +41,52 @@ namespace SpecFlowDemo
         
         [When(@"I click button ""(.*)""")]
         public void WhenIClickButton(string p0)
-        {//	$ 2.00        (0 Days, 1 Hours, 0 Minutes)
-            results = ParkingCalcDriver.DoCalcs("$ 2.00", "(0 Days, 1 Hours, 0 Minutes)");
-            Console.WriteLine(string.Join("|",results));
+        {
+            Console.WriteLine("WhenIClickButton");
         }
         
         [Then(@"the ""(.*)"" is equal to ""(.*)""")]
         public void ThenTheIsEqualTo(string p0, string p1)
         {
-            ScenarioContext.Current.Pending();
+            Console.WriteLine("ThenTheIsEqualTo");
+            _cost = p0;
         }
         
         [Then(@"the duration of stay is equal to ""(.*)""")]
         public void ThenTheDurationOfStayIsEqualTo(string p0)
         {
-            ScenarioContext.Current.Pending();
+            //	$ 2.00        (0 Days, 1 Hours, 0 Minutes)
+            results = ParkingCalcDriver.DoCalcs(_cost, p0);
+            Console.WriteLine(string.Join("|", results));
+
         }
+
+        [Then(@"I close the Browser")]
+        public void ThenICloseTheBrowser()
+        {
+            ParkingCalcDriver.Browser.Quit();
+        }
+
     }
 }
+//	$ 2.00        (0 Days, 1 Hours, 0 Minutes)
+//results = ParkingCalcDriver.DoCalcs("$ 2.00", "(0 Days, 1 Hours, 0 Minutes)");
+//Console.WriteLine(string.Join("|", results));
+
+//Feature: PARKING_CALCULATOR_Test1
+
+
+//@mytag
+
+//Scenario: PARKING_CALCULATOR_Test1
+//Given that I navigate with browser to "http://adam.goucher.ca/parkcalc/index.php"
+//And I select the "Short-Term Parking" option in the "Choose a Lot" dropdown
+//And I enter time of "10:00" and date of "01/01/2014" in the "Choose Entry Date and Time" section
+//And I select the ampm of "PM" option in the "Choose Entry Date and Time" section
+//And I enter time of "11:00" and date of "01/01/2014" in the "Choose Leaving Date and Time" section
+//And I select the ampm of "PM" option in the "Choose Leaving Date and Time" section
+
+//When I click button "Calculate" and verify cost is "$ 2.00" and duration is "(0 Days, 1 Hours, 0 Minutes)"
+//Then the "COST" is equal to "$ 2.00"
+//And the duration of stay is equal to "(0 Days, 1 Hours, 0 Minutes)"
+//And I close the Browser
