@@ -34,16 +34,7 @@ namespace SpecFlowDemo
         public static void testClass()
         {
 
-            ParkingCalcDriver.Browser =
-                new ChromeDriver(
-                    path); //"C:\\Users\\kf\\Documents\\Visual Studio 2015\\Projects\\testSeleniumClass\\testSeleniumClass\\chromedriver.exe");
-            Browser.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(15);
-
-
-            //SpecFlowDemo.SeleniumFW se = new SeleniumFW("chrome", "http://adam.goucher.ca/parkcalc/index.php", true);
-            Browser.Navigate().GoToUrl("http://adam.goucher.ca/parkcalc/index.php");
-            WaitForPageLoad(Browser);
-            Console.WriteLine(Browser.Title);
+            InitBrowser();
             DoCalcTest();
             DoCalcTest("Long-Term Surface Parking", 2016, 2, 12, 2017, 3, 11, "4:21", "11:21", "AM", "PM", "$ 10,244.00", " (393 Days, 19 Hours, 0 Minutes)");
 
@@ -68,6 +59,20 @@ namespace SpecFlowDemo
             //       string sout = "";
 
             Browser.Quit();
+        }
+
+        public static void InitBrowser()
+        {
+            ParkingCalcDriver.Browser =
+                new ChromeDriver(
+                    path); //"C:\\Users\\kf\\Documents\\Visual Studio 2015\\Projects\\testSeleniumClass\\testSeleniumClass\\chromedriver.exe");
+            Browser.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(15);
+
+
+            //SpecFlowDemo.SeleniumFW se = new SeleniumFW("chrome", "http://adam.goucher.ca/parkcalc/index.php", true);
+            Browser.Navigate().GoToUrl("http://adam.goucher.ca/parkcalc/index.php");
+            WaitForPageLoad(Browser);
+            Console.WriteLine(Browser.Title);
         }
 
         public static bool DoCalcTest(
@@ -242,9 +247,20 @@ namespace SpecFlowDemo
         }
 
 
-        public static IWebElement setAMPM(string ampm, string startend)
+        public static IWebElement setAMPM(string ampm, string entryleave)
         {
             IWebElement rc = null;
+            //Choose Entry Date and Time
+            //Choose Leaving Date and Time
+            string startend = "EntryTime";
+            if (entryleave.Contains("Choose Leaving"))
+            {
+                startend = "ExitTimeAMPM";
+            }
+            else if (entryleave.Contains("Choose Entry"))
+            {
+                startend = "EntryTimeAMPM";
+            }
             //<input name="EntryTimeAMPM" type="radio" value="AM" checked="">
             IWebElement etime = FindElementsAtrib(By.TagName("input"), "name", startend, null, "value", ampm);
             if (etime != null)
@@ -255,9 +271,20 @@ namespace SpecFlowDemo
             }
             return rc;
         }
-        public static IWebElement setTime(string time, string startend)
+        public static IWebElement setTime(string time, string entryleave)
         {
             IWebElement rc = null;
+            //Choose Entry Date and Time
+            //Choose Leaving Date and Time
+            string startend = "EntryTime";
+            if (entryleave.Contains("Choose Leaving"))
+            {
+                startend = "ExitTime";
+            }
+            else if (entryleave.Contains("Choose Entry"))
+            {
+                startend = "EntryTime";
+            }
             //<input name="EntryTime" type="text" id="EntryTime" value="12:00" size="10">
             IWebElement etime = FindElementsAtrib(By.TagName("input"), "id", startend);
             if (etime != null)
@@ -349,9 +376,20 @@ namespace SpecFlowDemo
             return rc;
         }
 
-        public static IWebElement SetCalendar(int year, int mn, int day, string startend)
+        public static IWebElement SetCalendar(int year, int mn, int day, string entryleave)
         {
             IWebElement rc = null;
+            //Choose Entry Date and Time
+            //Choose Leaving Date and Time
+            string startend = "EntryTime";
+            if (entryleave.Contains("Choose Leaving"))
+            {
+                startend = "ExitDate";
+            }
+            else if (entryleave.Contains("Choose Entry"))
+            {
+                startend = "EntryDate";
+            }
             string[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
             if (mn < 1)
             {
