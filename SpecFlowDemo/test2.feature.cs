@@ -79,11 +79,11 @@ testRunner.Given("that I navigate with browser to \"http://adam.goucher.ca/parkc
 #line 9
    testRunner.And("I click on the Calendar Icon in the \"Choose Entry Date and Time\" section", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
-   testRunner.And("I select \"01/01/2014\" in the new window that appears", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+   testRunner.And("I select \"01/01/2011\" in the new window that appears", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
    testRunner.And("I click on the Calendar Icon in the \"Choose Leaving Date and Time\" section", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
-   testRunner.And("I select \"02/01/2014\" in the new window that appears", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+   testRunner.And("I select \"02/01/2011\" in the new window that appears", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
 testRunner.When("I click button \"Calculate\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 15
